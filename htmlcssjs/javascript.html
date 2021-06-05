@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    //scrip tag to link: internal mode and external mode
+    <script type="text/javascript">
+        console.log("hello js")
+        console.log(document.getElementsByTagName('h1')[0]); //0: h1, cannot get h1 tag
+    </script>
+    <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript" src="main1.js"></script>
+</head>
+<body>
+//inline mode link js with html
+<h1 onclick = "alert('hello')">hello JS</h1>
+/*对元素操作 put in the body*/
+<script type="text/javascript">
+    console.log("hello js")
+    console.log(document.getElementsByTagName('h1')[0]); //0: h1, can get h1 tag
+</script>
+
+<script type="text/javascript">
+   var user = "Joe";
+   var age = 25;
+   //primitive: number, string boolean
+   //object: key value pair {key: value, key2: value}
+   //obj.name, obj.age to get value
+   //obj["name"], obj["age"] also can get value
+   //. will transfer to []
+   var obj = {name: "snoopy", age: 10}
+   //obj.name cannot get 1
+   //obj[name] => 1 => cannot use. to get a pointed value
+   var name = "a";
+   var obj = {a: 1, b: 2};
+
+   //array is also object
+   var arr = [1,2,3]
+   //arr[0]
+   var arr1 = [1, "hello", true, {a:1, b:2}, function(){}, [1,2,3]];
+   //array: [number, string, boolean, fn, object, array]
+   //add element
+   arr1.push(2);
+   //two special values
+   var test;
+   console.log(test); //undefined -> it's a value
+   console.log(test1); //not defined.
+
+   var a = null;
+
+   //function
+   function fn() {
+       for (var i = 0; i < 2; i++) {
+           console.log(i + 1);
+       }
+   }
+   if(1 < 0) {
+       fn();
+   }
+   if (3 > 2) {
+      fn();
+   }
+   //how to define a fn
+   //method1: function keyword + fn name
+   //can call function then define func
+   console.log(myFunc);
+   function myFunc(paras) {
+       console.log('this is my fn');
+       console.log(paras+1);
+   }
+   myFunc(10);
+
+   //method2: func expression
+   // var fn = function() {}
+   var myFunc2 = function(paras) {
+       console.log('this is my fn2');
+       console.log(paras+10);
+   }
+
+   myFunc2(10);
+
+   //IIFE: immediately invoked function expression
+   //application: for plugin
+   (function test() {
+       console.log(1);
+   })();
+
+   var fn = function() {
+       console.log(1);
+   }
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/redux/4.0.5/redux.j"></script>
+</head>
+<body>
+<h1>Hello redux</h1>
+<hr>
+<h2 class ="box"></h2>
+<button class = "add">+ 10</button>
+<button class = "minus">- 10</button>
+
+<script type = "text/javascript">
+    //step1: create a reducer func -> define what i can do in a store
+    //data and action
+    //a initalize 100
+    function reducer(state = {a: 100}, action) {
+        //list all possible actions
+        if (action.type === '+') {
+            return {
+                a: state.a + 10;
+            }
+        } else if (action.type === '-'){
+            a: state.a - 10;
+        }
+        return state;
+    }
+    //step2: create a store/DB by createStore
+    var store = Redux.createStore(reducer);
+
+    //step3: create a view
+    function render() {
+        //view  and date combine
+        var oH2 = document.getElementByClassNmae('box')[0];
+        //view get data from store
+        var data = store.getState().a;
+        oH2.innerHTML = data;
+    }
+
+    //step5: subscribe to combie data from store to view
+    //自动刷新 view-> render
+    store.subscribe(render);
+    render();//render is function name
+
+    //step4: dispatch actions 事件处理函数
+    var oAdd = document.getElementsByClassName('add')[0];
+        oMinus = document.getElementsByClassName('minus')[0];
+
+    oAdd.addEventListener('click', function() {
+        //dispatch add action
+        store.dispatch({type: '+'});
+    }, false)
+
+    oMinus.addEventListener('click', function() {
+        //dispatch add action
+        store.dispatch({type: '-'});
+    }, false)
+
+
+</script>
+</body>
+</html>
