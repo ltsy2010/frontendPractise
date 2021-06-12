@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>DOM + Ajax</h1>
+
+<div class="user common">Users:</div>
+
+<ul class="box common">
+    <li id="john">John</li>
+    <li id="peter">Peter</li>
+</ul>
+
+<ol id="ol">
+    <li>0</li>
+    <li>1</li>
+    <li>2</li>
+</ol>
+
+
+<script>
+    // var a = 10;
+    // window.a = 10;
+    // getElementById
+    var oJohn = document.getElementById('john');
+    var oPeter = document.getElementById('peter');
+
+    // getElementsByClassName
+    var oCom = document.getElementsByClassName('common');
+    var oUser = document.getElementsByClassName('user');
+
+    // getElementsByTagName
+    var oH1 = document.getElementsByTagName('h1');
+
+    // querySelector
+    var oUser1 = document.querySelector('.user');
+    var oComm1 = document.querySelectorAll('.common');
+
+    var oLi = document.createElement('li');
+    oLi.innerHTML = 'append';
+    var oOl = document.getElementById('ol');
+    // oOl.append(oLi);
+    // oOl.prepend(oLi);
+    // oOl.before(oLi);
+    // oOl.after(oLi);
+</script>
+
+<script>
+    // fe <-> be
+    //  method, url, data
+    //  req res
+
+    // step1: create an instance
+    var xhr = new XMLHttpRequest();
+
+    // step2: config
+    xhr.open('GET', 'http://petstore.swagger.io/v2/swagger.json', true);
+
+    // step3: send request
+    xhr.send();
+
+    // step4: get response
+    xhr.onload = function() {
+        // console.log(xhr);
+        // response checking
+        if(xhr.status === 200) {
+            console.log(typeof xhr.responseText);
+            var obj = JSON.parse(xhr.responseText);
+            console.log(obj);
+        }
+    }
+
+    xhr.onerror = function() {
+        console.log('error');
+    }
+</script>
+</body>
+</html>

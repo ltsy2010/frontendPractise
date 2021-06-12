@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="main.css" />
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: #61dafb;
+        }
+    </style>
+</head>
+<body>
+<!--<h1 onclick="alert('hello')">Event</h1>-->
+<h1>Event</h1>
+<div></div>
+
+<script src="main.js"></script>
+<script>
+    console.log('start');
+    var oDiv = document.getElementsByTagName('div')[0];
+
+    // oDiv.onclick = function () {
+    //     console.log(1);
+    // }
+    //
+    // oDiv.onclick = function () {
+    //     console.log(2);
+    // }
+
+    // oDiv.addEventListener('click',function () {
+    //     console.log('clicked 1');
+    // }, false);
+
+    oDiv.addEventListener('click',function (event) {
+        console.log('clicked 2');
+        console.log(event);
+        console.log(event.target);
+    }, false);
+
+    console.log('end');
+
+
+</script>
+</body>
+</html>
